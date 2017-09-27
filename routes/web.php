@@ -14,6 +14,9 @@
 Route::get('/', 'BlogController@index')->name('blog');
 
 Route::group(['prefix'=>'admin', 'namespace'=>'Admin', 'middleware'=>['auth']], function (){
+    Route::get('/', 'HomeController@index')->name('admin.index');
 });
 
 Auth::routes();
+
+Route::get('/home', 'HomeController@index');
