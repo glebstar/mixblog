@@ -61,6 +61,10 @@
     <div class="container theme-showcase" role="main">
         @yield('content')
         @yield('cmspagebody')
+
+        <footer class="footer">
+            <p>&copy; 2017 MixBlog</p>
+        </footer>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"
