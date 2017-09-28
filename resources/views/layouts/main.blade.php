@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>{{ $settings->title }} - Персональный блог</title>
+    <title>{{ $settings->title }} - Персональный блог @if(isset($page)) | {{$page->title}} @endif</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
+    <meta name="description" content="@if(isset($page)){{$page->description}} @endif" />
+    <meta name="keywords" content="@if(isset($page)){{$page->keywords}} @endif" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -27,10 +29,14 @@
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Мой блог</a></li>
+                    <li class="@if(\Request::path() == '/') active @endif"><a href="/">Мой блог</a></li>
                     <!--
                     <li><a href="#about">Обо мне</a></li>
                     -->
+                    @foreach($menu as $item)
+                        <li class="@if(\Request::path() == $item->path) active @endif"><a href="/{{ $item->path }}">{{ $item->title }}</a></li>
+                    @endforeach
+
                     <li><a href="#contact">Написать мне</a></li>
 
                     <!--

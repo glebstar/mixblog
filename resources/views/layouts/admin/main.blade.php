@@ -40,6 +40,8 @@
     <link rel="stylesheet" href="/adm/assets/css/fonts/icomoon/style.css" media="screen">
     <link rel="stylesheet" href="/adm/assets/css/main-style.css" media="screen">
 
+    @yield('styles')
+
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -149,7 +151,8 @@
 											<span class="nav-title">Главная</span>
                                         </span>
                                     <ul class="inner-nav">
-                                        <li class="active"><a href="/admin"><i class="icol-dashboard"></i> Основное</a></li>
+                                        <li class="@if(\Request::path() == 'admin')active @endif"><a href="/admin"><i class="icol-dashboard"></i> Основное</a></li>
+                                        <li class="@if(\Request::path() == 'admin/menu')active @endif"><a href="/admin/menu"><i class="icol-link"></i> Главное меню</a></li>
                                         <!--
                                         <li><a href="calendar.html"><i class="icol-calendar-2"></i> Calendar</a></li>
                                         <li><a href="icons.html"><i class="icol-lifebuoy"></i> Icons</a></li>
@@ -298,6 +301,11 @@
 
 <!-- Demo Scripts -->
 <script src="/adm/assets/js/demo/dashboard.js"></script>
+<script>
+    var _token = '{{ csrf_token() }}';
+</script>
+
+@yield('scripts')
 
 </body>
 

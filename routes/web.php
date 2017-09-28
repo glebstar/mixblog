@@ -15,6 +15,10 @@ Route::get('/', 'BlogController@index')->name('blog');
 
 Route::group(['prefix'=>'admin', 'namespace'=>'Admin', 'middleware'=>['auth']], function (){
     Route::match(['get', 'post'], '/', 'HomeController@index')->name('admin.index');
+    Route::get('/menu', 'HomeController@menu')->name('admin.menu');
+    Route::get('/menu/add', 'HomeController@menuAdd')->name('admin.menu.add');
+    Route::get('/menu/del', 'HomeController@menuDel')->name('admin.menu.del');
+    Route::post('/menu/save', 'HomeController@menuSave');
 });
 
 Auth::routes();
