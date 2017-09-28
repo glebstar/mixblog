@@ -54,6 +54,7 @@
     </nav>
     <div class="container theme-showcase" role="main">
         @yield('content')
+        @yield('cmspagebody')
     </div>
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"
