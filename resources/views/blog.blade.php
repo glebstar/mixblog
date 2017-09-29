@@ -12,4 +12,23 @@
             </div>
         </div>
     </div>
+
+    @foreach($articles as $article)
+        <div class="row" style="margin-bottom: 30px;">
+            <div class="col-md-2">
+                <h3><span class="label label-primary">{{ date('d.m.Y H:i') }}</span></h3>
+            </div>
+            <div class="col-md-10">
+                <div class="media">
+                    <div class="media-left">
+                        <img class="media-object my-photo" src="{{ $article->img }}" alt="">
+                    </div>
+                    <div class="media-body">
+                        <h2 class="media-heading">{{ $article->title }}</h2>
+                        <p style="margin-top: 20px;"><a type="button" class="btn btn-success" href="/?id={{ $article->id }}">Читать</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endforeach
 @endsection

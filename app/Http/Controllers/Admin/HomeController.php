@@ -57,8 +57,7 @@ class HomeController extends Controller
         );
 
         return response()->json([
-            'result' => 'ok',
-            'id' => $request->id
+            'result' => 'ok'
         ]);
     }
 }

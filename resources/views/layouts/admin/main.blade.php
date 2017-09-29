@@ -145,7 +145,7 @@
                     <aside id="sidebar">
                         <nav id="navigation" class="collapse">
                             <ul>
-                                <li class="active">
+                                <li class="@if(\Request::path() == 'admin' OR \Request::path() == 'admin/menu')active @endif">
                                     	<span title="General">
                                     		<i class="icon-home"></i>
 											<span class="nav-title">Главная</span>
@@ -153,12 +153,16 @@
                                     <ul class="inner-nav">
                                         <li class="@if(\Request::path() == 'admin')active @endif"><a href="/admin"><i class="icol-dashboard"></i> Основное</a></li>
                                         <li class="@if(\Request::path() == 'admin/menu')active @endif"><a href="/admin/menu"><i class="icol-link"></i> Главное меню</a></li>
-                                        <!--
-                                        <li><a href="calendar.html"><i class="icol-calendar-2"></i> Calendar</a></li>
-                                        <li><a href="icons.html"><i class="icol-lifebuoy"></i> Icons</a></li>
-                                        <li><a href="grids.html"><i class="icol-grid"></i> Grids</a></li>
-                                        <li><a href="typography.html"><i class="icol-font"></i> Typography</a></li>
-                                        -->
+                                    </ul>
+                                </li>
+
+                                <li>
+                                    <span title="Дополнительно">
+                                        <i class="icon-attachment"></i>
+                                        <span class="nav-title">Дополнительно</span>
+                                    </span>
+                                    <ul class="inner-nav">
+                                        <li><a href="/laravel-filemanager"><i class="icol-attach-2"></i> Файл-менеджер</a></li>
                                     </ul>
                                 </li>
 

@@ -30,5 +30,11 @@ Route::group(['prefix' => 'cms', 'middleware' => 'cms'], function(){
     Route::delete('/delete/{id}', '\GlebStarSimpleCms\Controllers\AdminController@delete');
 });
 
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/laravel-filemanager', '\Unisharp\Laravelfilemanager\controllers\LfmController@show');
+    Route::post('/laravel-filemanager/upload', '\Unisharp\Laravelfilemanager\controllers\UploadController@upload');
+    // list all lfm routes here...
+});
+
 // this route should be the last.
-Route::get('{path}', '\GlebStarSimpleCms\Controllers\CmsController@index')->where('path', '([A-z\d-\/_.]+)?');
+Route::get('{path}', '\GlebStarSimpleCms\Controllers\CmsController@index')->where('path', '(?!laravel)([A-z\d-\/_.]+)?');
