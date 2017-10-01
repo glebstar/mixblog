@@ -49,3 +49,14 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+
+## req
+
+```
+sudo apt install php5.6-imagick
+
+sudo apt install php5.6-exif
+
+sudo apt install php 5.6-gd
+
+```

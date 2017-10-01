@@ -19,6 +19,7 @@ class CreateArticlesTable extends Migration
             $table->string('title');
             $table->text('body');
             $table->integer('create_time')->unsigned();
+            $table->string('slug');
             $table->timestamps();
         });
 
@@ -27,6 +28,7 @@ class CreateArticlesTable extends Migration
             'img' => 'https://i.mycdn.me/image?id=838978449982&t=36&plc=WEB&tkn=*Yp8YtD6tsbtQtt37lG3PT7VH9_0',
             'body' => 'Всем привет, первая запись блога',
             'create_time' => time(),
+            'slug' => 'pervaya-zapis'
         ]);
     }
 

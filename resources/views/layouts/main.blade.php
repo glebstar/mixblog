@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>{{ $settings->title }} - Персональный блог @if(isset($page)) | {{$page->title}} @endif</title>
+    <title>{{ $settings->title }} - Персональный блог @if(isset($page)) | {{$page->title}} @endif @if(isset($article)) | {{$article->title}} @endif</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="description" content="@if(isset($page)){{$page->description}} @endif" />
@@ -38,6 +38,11 @@
                     @endforeach
 
                     <li><a href="#contact">Написать мне</a></li>
+                    @can('admin')
+                        <li><a href="/admin">Админка</a></li>
+                        <li><a href="/cms">CMS</a></li>
+                        <li><a href="/laravel-filemanager">Файлы</a></li>
+                    @endcan
 
                     <!--
                     <li class="dropdown">

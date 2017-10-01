@@ -13,12 +13,19 @@
 
 Route::get('/', 'BlogController@index')->name('blog');
 
+Route::get('/blog/{slug}/{id}', 'BlogController@article')->name('blog.article');
+
 Route::group(['prefix'=>'admin', 'namespace'=>'Admin', 'middleware'=>['auth']], function (){
     Route::match(['get', 'post'], '/', 'HomeController@index')->name('admin.index');
     Route::get('/menu', 'HomeController@menu')->name('admin.menu');
     Route::get('/menu/add', 'HomeController@menuAdd')->name('admin.menu.add');
     Route::get('/menu/del', 'HomeController@menuDel')->name('admin.menu.del');
     Route::post('/menu/save', 'HomeController@menuSave');
+
+    Route::get('/blog', 'BlogController@index')->name('admin.blog');
+    Route::match(['get', 'post'], '/blog/add', 'BlogController@add')->name('admin.blog.add');
+    Route::match(['get', 'post'], '/blog/edit', 'BlogController@edit')->name('admin.blog.edit');
+    Route::get('/blog/del', 'BlogController@del')->name('admin.blog.del');
 });
 
 Auth::routes();

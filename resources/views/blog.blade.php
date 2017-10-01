@@ -16,7 +16,7 @@
     @foreach($articles as $article)
         <div class="row" style="margin-bottom: 30px;">
             <div class="col-md-2">
-                <h3><span class="label label-primary">{{ date('d.m.Y H:i') }}</span></h3>
+                <h3><span class="label label-primary">{{ date('d.m.Y H:i', $article->create_time) }}</span></h3>
             </div>
             <div class="col-md-10">
                 <div class="media">
@@ -25,10 +25,11 @@
                     </div>
                     <div class="media-body">
                         <h2 class="media-heading">{{ $article->title }}</h2>
-                        <p style="margin-top: 20px;"><a type="button" class="btn btn-success" href="/?id={{ $article->id }}">Читать</a></p>
+                        <p style="margin-top: 20px;"><a type="button" class="btn btn-success" href="/blog/{{ $article->slug }}/{{ $article->id }}">Читать</a></p>
                     </div>
                 </div>
             </div>
         </div>
     @endforeach
+    {{ $articles->links() }}
 @endsection

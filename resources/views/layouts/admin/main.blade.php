@@ -156,6 +156,17 @@
                                     </ul>
                                 </li>
 
+                                <li class="@if(\Request::path() == 'admin/blog' OR \Request::path() == 'admin/blog/add')active @endif">
+                                    <span title="Блог">
+                                        <i class="icon-book"></i>
+                                        <span class="nav-title">Блог</span>
+                                    </span>
+                                    <ul class="inner-nav">
+                                        <li class="@if(\Request::path() == 'admin/blog')active @endif"><a href="/admin/blog"><i class="icol-application-cascade"></i> Все записи</a></li>
+                                        <li class="@if(\Request::path() == 'admin/blog/add')active @endif"><a href="/admin/blog/add"><i class="icol-pencil"></i> Добавить запись</a></li>
+                                    </ul>
+                                </li>
+
                                 <li>
                                     <span title="Дополнительно">
                                         <i class="icon-attachment"></i>
@@ -163,6 +174,7 @@
                                     </span>
                                     <ul class="inner-nav">
                                         <li><a href="/laravel-filemanager"><i class="icol-attach-2"></i> Файл-менеджер</a></li>
+                                        <li><a href="/cms"><i class="icol-page-2-copy"></i> CMS</a></li>
                                     </ul>
                                 </li>
 

@@ -9,14 +9,18 @@ class BlogController extends Controller
 {
     public function index(Request $request)
     {
-        if ($request->id) {
-            echo 'blog';
-            exit;
-        }
-
         return view('blog', [
             'articles' => Article::orderBy('create_time', 'desc')
                 ->paginate(5)
+        ]);
+    }
+
+    public function article($slug, $id)
+    {
+        $article = Article::findOrFail($id);
+
+        return view('article', [
+            'article' => $article
         ]);
     }
 }
