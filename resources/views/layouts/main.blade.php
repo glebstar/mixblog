@@ -37,7 +37,7 @@
                         <li class="@if(\Request::path() == $item->path) active @endif"><a href="/{{ $item->path }}">{{ $item->title }}</a></li>
                     @endforeach
 
-                    <li><a href="#contact">Написать мне</a></li>
+                    <li class="@if(\Request::path() == 'contact') active @endif"><a href="{{ route('contact') }}">Написать мне</a></li>
                     @can('admin')
                         <li><a href="/admin">Админка</a></li>
                         <li><a href="/cms">CMS</a></li>
@@ -77,5 +77,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
             integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
             crossorigin="anonymous"></script>
+
+    @yield('scripts')
 </body>
 </html>

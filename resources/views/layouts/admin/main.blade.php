@@ -167,6 +167,16 @@
                                     </ul>
                                 </li>
 
+                                <li class="@if(\Request::path() == 'admin/contact')active @endif">
+                                    <span title="Сообщения">
+                                        <i class="icon-comment"></i>
+                                        <span class="nav-title">Сообщения</span>
+                                    </span>
+                                    <ul class="inner-nav">
+                                        <li class="@if(\Request::path() == 'admin/contact')active @endif"><a href="{{ route('admin.contact') }}"><i class="icol-comment"></i> Все сообщения</a></li>
+                                    </ul>
+                                </li>
+
                                 <li>
                                     <span title="Дополнительно">
                                         <i class="icon-attachment"></i>
