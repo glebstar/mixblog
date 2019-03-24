@@ -66,6 +66,13 @@
     <div class="container theme-showcase" role="main">
         @yield('content')
         @yield('cmspagebody')
+        <script type="text/javascript" src="https://vk.com/js/api/openapi.js?160"></script>
+
+        <!-- VK Widget -->
+        <div id="vk_community_messages"></div>
+        <script type="text/javascript">
+            VK.Widgets.CommunityMessages("vk_community_messages", 154584018, {expanded: "1",tooltipButtonText: "Есть вопрос?"});
+        </script>
 
         <footer class="footer">
             <p>&copy; 2017 MixBlog</p>
